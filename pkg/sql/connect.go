@@ -1,4 +1,4 @@
-package pkg
+package sql
 
 import (
 	"errors"
@@ -11,6 +11,7 @@ import (
 	"strings"
 	"time"
 )
+
 // Connects to a database with the default config
 func ConnectToDatabase() (client *gorm.DB, err error) {
 	config := gorm.Config{}

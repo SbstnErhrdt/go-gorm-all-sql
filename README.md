@@ -12,6 +12,13 @@ on different databases, by only changing one environment variable.
 
 Just set `SQL_TYPE` to either `MYSQL`, `POSTGRES`, `SQLITE` and you are good to go. 
 
+## Installation
+
+```
+go get github.com/SbstnErhrdt/go-gorm-all-sql
+```
+
+
 ## Todo
 * Tests
 * Docker compose environment
