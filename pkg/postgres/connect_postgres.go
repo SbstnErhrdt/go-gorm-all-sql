@@ -2,7 +2,7 @@ package postgres
 
 import (
 	"fmt"
-	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environement"
+	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
@@ -20,7 +20,7 @@ var requiredEnvironmentVariablesForPostGres = []string{
 // Creates a connection to a postgres database
 func ConnectToPostgres(config *gorm.Config) (client *gorm.DB, err error) {
 	// check env variables
-	environement.CheckEnvironmentVariables(requiredEnvironmentVariablesForPostGres)
+	environment.CheckEnvironmentVariables(requiredEnvironmentVariablesForPostGres)
 	// required env variables
 	host := os.Getenv("SQL_HOST")
 	user := os.Getenv("SQL_USER")

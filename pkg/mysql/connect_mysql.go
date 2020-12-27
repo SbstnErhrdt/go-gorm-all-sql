@@ -2,7 +2,7 @@ package mysql
 
 import (
 	"fmt"
-	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environement"
+	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
@@ -19,7 +19,7 @@ var requiredEnvironmentVariablesForMySQL = []string{
 
 func ConnectToMysql(config *gorm.Config) (client *gorm.DB, err error) {
 	// check env variables
-	environement.CheckEnvironmentVariables(requiredEnvironmentVariablesForMySQL)
+	environment.CheckEnvironmentVariables(requiredEnvironmentVariablesForMySQL)
 	// env variables
 	host := os.Getenv("SQL_HOST")
 	user := os.Getenv("SQL_USER")

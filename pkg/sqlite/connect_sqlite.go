@@ -1,7 +1,7 @@
 package sqlite
 
 import (
-	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environement"
+	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"log"
@@ -14,7 +14,7 @@ var requiredEnvironmentVariablesForSQLite = []string{
 
 func ConnectToSQLite(config *gorm.Config) (client *gorm.DB, err error) {
 	// check env variables
-	environement.CheckEnvironmentVariables(requiredEnvironmentVariablesForSQLite)
+	environment.CheckEnvironmentVariables(requiredEnvironmentVariablesForSQLite)
 	dbName := os.Getenv("SQL_DATABASE")
 	// connect to database
 	client, err = gorm.Open(sqlite.Open(dbName), config)
