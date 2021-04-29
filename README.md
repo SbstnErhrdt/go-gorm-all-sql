@@ -14,8 +14,20 @@ Just set `SQL_TYPE` to either `MYSQL`, `POSTGRES`, `SQLITE` and you are good to 
 
 ## Installation
 
-```
+```shell
 go get github.com/SbstnErhrdt/go-gorm-all-sql
+```
+
+## Examples
+```go
+package main
+import (
+    "github.com/SbstnErhrdt/go-gorm-all-sql/pkg/sql"
+)
+
+func main()  {
+    sql.ConnectToDatabase()
+}
 ```
 
 
@@ -45,11 +57,6 @@ SQL_SSL= // optional
 ## SQLite
 ```
 SQL_DATABASE=
-```
-
-## Examples
-```
-ConnectToDatabase()
 ```
 
 ## Functionality
