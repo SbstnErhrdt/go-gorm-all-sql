@@ -12,18 +12,18 @@ import (
 	"time"
 )
 
-// Connects to a database with the default config
+// ConnectToDatabase connects to a database with the default config
 func ConnectToDatabase() (client *gorm.DB, err error) {
 	config := gorm.Config{}
 	return connect(&config)
 }
 
-// Connects to a database with a specific config
+// ConnectToDatabaseWithConfig connects to a database with a specific config
 func ConnectToDatabaseWithConfig(config *gorm.Config) (client *gorm.DB, err error) {
 	return connect(config)
 }
 
-// Extracts the sql type environment flag from the environment
+// getSQlType extracts the sql type environment flag from the environment
 // if there is no flag present the fallback is MYSQL
 func getSQlType() string {
 	// Get env variables
@@ -36,7 +36,7 @@ func getSQlType() string {
 
 var FailedConnectionCounter = 10 // amount of retries to connect to the database
 
-// Tries to connect to the database
+// connect Tries to connect to the database
 // Does this recursively until there is a connection
 // or until the counter is 0
 func connect(config *gorm.Config) (client *gorm.DB, err error) {
