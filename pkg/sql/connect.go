@@ -51,11 +51,12 @@ func connect(config *gorm.Config) (client *gorm.DB, err error) {
 		err = errors.New("can not find this sql type")
 		return
 	}
+	log.Println("InitSqlClient: type:", getSQlType())
 	// if there are problems with connecting to the database
 	// retry
 	if err != nil {
 		// If we can not connect we try again in 10 seconds
-		log.Println("InitMysqlClient: error:", err)
+		log.Println("InitSqlClient: error:", err)
 		FailedConnectionCounter--
 		// Base case
 		if FailedConnectionCounter == 0 {
@@ -64,7 +65,7 @@ func connect(config *gorm.Config) (client *gorm.DB, err error) {
 			log.Fatal("InitSQLClient: FATAL", err)
 			return
 		}
-		log.Println("InitMysqlClient: retry")
+		log.Println("InitSqlClient: retry")
 		time.Sleep(time.Second * 5)
 		// Retry again
 		return connect(config)
