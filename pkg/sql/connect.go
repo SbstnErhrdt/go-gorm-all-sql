@@ -39,7 +39,7 @@ func getSQlType() string {
 // if there is no flag present the fallback is DEFAULT
 func getLogger() string {
 	// Get env variables
-	loggerType := os.Getenv("LOGGER")
+	loggerType := os.Getenv("SQL_LOGGER")
 	if len(loggerType) == 0 {
 		loggerType = "DEFAULT"
 	}

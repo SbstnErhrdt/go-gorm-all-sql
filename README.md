@@ -70,7 +70,7 @@ SQL_DATABASE=
 to add the logrus logger, add the following environment flag
 
 ```
-LOGGER=LOGRUS
+SQL_LOGGER=LOGRUS
 ```
 
 ## Functionality
