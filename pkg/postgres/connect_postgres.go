@@ -3,9 +3,9 @@ package postgres
 import (
 	"fmt"
 	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
+	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"log"
 	"os"
 )
 
@@ -38,9 +38,9 @@ func ConnectToPostgres(config *gorm.Config) (client *gorm.DB, err error) {
 	// Connect to db
 	client, err = gorm.Open(postgres.Open(dsn), config)
 	if err != nil {
-		log.Println("Postgres Client: error:", err)
+		log.Error("Postgres Client: error:", err)
 		return nil, err
 	}
-	log.Println("Postgres Client: connected")
+	log.Info("Postgres Client: connected")
 	return
 }

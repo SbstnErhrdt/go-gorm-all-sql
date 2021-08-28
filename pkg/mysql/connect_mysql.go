@@ -3,9 +3,9 @@ package mysql
 import (
 	"fmt"
 	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
+	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"log"
 	"os"
 )
 
@@ -31,8 +31,9 @@ func ConnectToMysql(config *gorm.Config) (client *gorm.DB, err error) {
 	// connect to db
 	client, err = gorm.Open(mysql.Open(dsn), config)
 	if err != nil {
+		log.Error(err)
 		return nil, err
 	}
-	log.Println("MySQL Client: connected", err)
+	log.Info("MySQL Client: connected", err)
 	return
 }

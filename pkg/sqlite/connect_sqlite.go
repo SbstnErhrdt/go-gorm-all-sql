@@ -2,9 +2,9 @@ package sqlite
 
 import (
 	"github.com/SbstnErhrdt/go-gorm-all-sql/pkg/environment"
+	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"log"
 	"os"
 )
 
@@ -19,9 +19,9 @@ func ConnectToSQLite(config *gorm.Config) (client *gorm.DB, err error) {
 	// connect to database
 	client, err = gorm.Open(sqlite.Open(dbName), config)
 	if err != nil {
-		log.Println("SQLite Client: error:", err)
+		log.Error("SQLite Client: error:", err)
 		return nil, err
 	}
-	log.Println("SQLite Client: connected")
+	log.Info("SQLite Client: connected")
 	return
 }
