@@ -17,6 +17,12 @@ Just set `SQL_TYPE` to either `MYSQL`, `POSTGRES`, `SQLITE` and you are good to 
 go get github.com/SbstnErhrdt/go-gorm-all-sql
 ```
 
+In a development setting you can make use of the `env` package to load variables from a .env file into the ENV.
+
+```shell
+go get github.com/SbstnErhrdt/env
+```
+
 ## Examples
 
 ```go
@@ -27,7 +33,10 @@ import (
 )
 
 func main() {
-	sql.ConnectToDatabase()
+	// load env
+	env.LoadEnvFiles() // reads the .env file in the working directory
+	// connect to DB
+	db, err := sql.ConnectToDatabase()
 }
 ```
 
@@ -41,28 +50,31 @@ func main() {
 Env variables
 
 ```
-SQL_HOST=
-SQL_USER=
-SQL_PASSWORD=
-SQL_PORT=
-SQL_DATABASE=
+SQL_TYPE=MYSQL
+SQL_HOST=mysql.server.com
+SQL_PORT=3306
+SQL_USER=sql_user
+SQL_PASSWORD=xxxxxx
+SQL_DATABASE=test
 ```
 
 ## Postgres
 
 ```
-SQL_HOST=
-SQL_USER=
-SQL_PASSWORD=
-SQL_PORT=
-SQL_DATABASE=
+SQL_TYPE=POSTGRES
+SQL_HOST=postgres.server.com
+SQL_PORT=5432
+SQL_USER=sql_user
+SQL_PASSWORD=xxxxxx
+SQL_DATABASE=test
 SQL_SSL= // optional
 ```
 
 ## SQLite
 
 ```
-SQL_DATABASE=
+SQL_TYPE=SQLITE
+SQL_DATABASE=data.db
 ```
 
 ## Logger
